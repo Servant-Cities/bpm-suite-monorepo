@@ -1,38 +1,21 @@
-# sv
+# Scenario builder
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A frontend built on sveltekit, meant to offer an opinionated and abstract process management interface aka "The scenario builder".
 
-## Creating a project
+This is likely to be used as a prospection material and an interactive participatory roadmap for non technical users.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Roadmap
 
-```bash
-# create a new project in the current directory
-npx sv create
+1. A BPMN like builder using local data to give any user the ability to:
+    [ ] Create and connect activities
+    [ ] Assign activities to different scenarios
+    [ ] Configure control lists
+    [ ] Configure data output models
+    [ ] Configure triggers and conditions
 
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+2. Operationnal readiness for Scenarios:
+    [ ] Configure access matrix on activities and data output
+    [ ] Configure quality metrics per activity
+    [ ] Receive feedbacks per activity filtered per roles
+    [ ] Integrate with the protocol
+    [ ] Demonstrate integration with the processes monitor and the business app
