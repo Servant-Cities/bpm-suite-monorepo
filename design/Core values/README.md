@@ -39,11 +39,17 @@ While it is still a bit unclear how at that state, the original hope behind this
 
 ## Interoperability
 
-(to be done)
+In order to streamline the adoption of this project's components and prevent monopolies, we design this project with a focus on interoperability, the protocol we will create has to ensure we can plug and unplug any components complying with it in any environment.
+
+We propose solutions, we don't impose them, at any time one should feel free to replace anything we propose with a component of their own. We try our best to reduce the effort needed to do so to the least minimum, using a documented protocol and examples different people can relate with.
+
+More to it, we provide support to those trying to implement some of this project's components according with our core values.
+
+Not only to replace, we aim for different organizations or people using our components to be able to connect them with each others, the protocol should not prevent such connections as this will make the transformation more granular and gradual, interoperability should give small efforts a mean to trigger big changes.
 
 
 ## Scepticism
 
 We might be wrong and we might transform.
 
-This document is versionned to make this process clearer.
+This document is versionned to make this natural process clearer to the public and to help us resonate with our own value, and ultimately give legitimity to critics.
