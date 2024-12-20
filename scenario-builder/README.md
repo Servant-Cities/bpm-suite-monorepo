@@ -7,15 +7,15 @@ This is likely to be used as a prospection material and an interactive participa
 ## Roadmap
 
 1. A BPMN like builder using local data to give any user the ability to:
-    [ ] Create and connect activities
-    [ ] Assign activities to different scenarios
-    [ ] Configure control lists
-    [ ] Configure data output models
-    [ ] Configure triggers and conditions
+    - [ ] Create and connect activities
+    - [ ] Assign activities to different scenarios
+    - [ ] Configure control lists
+    - [ ] Configure data output models
+    - [ ] Configure triggers and conditions
 
 2. Operationnal readiness for Scenarios:
-    [ ] Configure access matrix on activities and data output
-    [ ] Configure quality metrics per activity
-    [ ] Receive feedbacks per activity filtered per roles
-    [ ] Integrate with the protocol
-    [ ] Demonstrate integration with the processes monitor and the business app
+    - [ ] Configure access matrix on activities and data output
+    - [ ] Configure quality metrics per activity
+    - [ ] Receive feedbacks per activity filtered per roles
+    - [ ] Integrate with the protocol
+    - [ ] Demonstrate integration with the processes monitor and the business app
