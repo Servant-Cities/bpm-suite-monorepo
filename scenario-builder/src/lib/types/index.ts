@@ -25,4 +25,4 @@ export type Activity = {
 export type Trigger = TranslationKey<"START"> | TranslationKey<"AND"> | TranslationKey<'OR'> | TranslationKey<'XOR'>;
 
 export type Model = { [Key: string] : SupportedType}
-export type SupportedType = Model | TranslationKey<'String'> | TranslationKey<'Boolean'> | TranslationKey<'Datetime'> | TranslationKey<'Number'
+export type SupportedType = Model | TranslationKey<'String'> | TranslationKey<'Boolean'> | TranslationKey<'Datetime'> | TranslationKey<'Number'>
