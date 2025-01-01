@@ -27,8 +27,8 @@ CREATE TABLE "Trigger" (
     "value" TEXT NOT NULL PRIMARY KEY,
     "description" TEXT NOT NULL,
     "reserved" BOOLEAN NOT NULL,
-    "extends" TEXT NOT NULL,
-    CONSTRAINT "Trigger_extends_fkey" FOREIGN KEY ("extends") REFERENCES "Trigger" ("value") ON DELETE RESTRICT ON UPDATE CASCADE
+    "extends" TEXT,
+    CONSTRAINT "Trigger_extends_fkey" FOREIGN KEY ("extends") REFERENCES "Trigger" ("value") ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 -- CreateTable

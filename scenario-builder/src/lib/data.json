@@ -1,3 +1,128 @@
 {
-    
+    "trigger": [
+        {
+            "value": "START",
+            "description": "Triggers when the activity is instanciated",
+            "reserved": true
+        },
+        {
+            "value": "AND",
+            "description": "Triggers if all previous activities are completed",
+            "reserved": true
+        },
+        {
+            "value": "OR",
+            "description": "Triggers if any previous activities are completed",
+            "reserved": true
+        },
+        {
+            "value": "XOR",
+            "description": "Triggers if only one of the previous activities is completed",
+            "reserved": true
+        }
+    ],
+    "scenario": [
+        {
+            "id": "scenario-1",
+            "name": "Scenario 1"
+        },
+        {
+            "id": "scenario-2",
+            "name": "Scenario 2"
+        }
+    ],
+    "activity": [
+        {
+            "id": "sc1-activity-1",
+            "name": "SC1 Activity 1",
+            "scenarios": {"connect": {"id": "scenario-1"}},
+            "trigger": "START"
+        },
+        {
+            "id": "sc1-activity-2",
+            "name": "SC1 Activity 2",
+            "scenarios": {"connect": {"id": "scenario-1"}},
+            "trigger": "AND"
+        },
+        {
+            "id": "sc1-activity-3",
+            "name": "SC1 Activity 3",
+            "scenarios": {"connect": {"id": "scenario-1"}},
+            "trigger": "AND"
+        },
+        {
+            "id": "sc1-activity-4",
+            "name": "SC1 Activity 4",
+            "scenarios": {"connect": {"id": "scenario-1"}},
+            "trigger": "OR"
+        },
+        {
+            "id": "sc2-activity-1",
+            "name": "SC2 Activity 1",
+            "scenarios": {"connect": {"id": "scenario-2"}},
+            "trigger": "START"
+        },
+        {
+            "id": "sc2-activity-2",
+            "name": "SC2 Activity 2",
+            "scenarios": {"connect": {"id": "scenario-2"}},
+            "trigger": "AND"
+        },
+        {
+            "id": "sc2-activity-3",
+            "name": "SC2 Activity 3",
+            "scenarios": {"connect": {"id": "scenario-2"}},
+            "trigger": "AND"
+        },
+        {
+            "id": "sc2-activity-4",
+            "name": "SC2 Activity 4",
+            "scenarios": {"connect": {"id": "scenario-2"}},
+            "trigger": "AND"
+        },
+        {
+            "id": "sc2-activity-5",
+            "name": "SC2 Activity 5",
+            "scenarios": {"connect": {"id": "scenario-2"}},
+            "trigger": "XOR"
+        }
+    ],
+    "connection": [
+        {
+            "previousActivity": {"connect":{"id":"sc1-activity-1"}},
+            "nextActivity": {"connect":{"id":"sc1-activity-2"}}
+        },
+        {
+            "previousActivity": {"connect":{"id":"sc1-activity-2"}},
+            "nextActivity": {"connect":{"id":"sc1-activity-4"}}
+        },
+        {
+            "previousActivity": {"connect":{"id":"sc1-activity-1"}},
+            "nextActivity": {"connect":{"id":"sc1-activity-3"}}
+        },
+        {
+            "previousActivity": {"connect":{"id":"sc1-activity-3"}},
+            "nextActivity": {"connect":{"id":"sc1-activity-4"}}
+        },
+        {
+            "previousActivity": {"connect":{"id":"sc2-activity-1"}},
+            "nextActivity": {"connect":{"id":"sc2-activity-2"}}
+        },
+        {
+            "previousActivity": {"connect":{"id":"sc2-activity-2"}},
+            "nextActivity": {"connect":{"id":"sc2-activity-3"}}
+        },
+        {
+            "previousActivity": {"connect":{"id":"sc2-activity-3"}},
+            "nextActivity": {"connect":{"id":"sc2-activity-5"}}
+        },
+        {
+            "previousActivity": {"connect":{"id":"sc2-activity-2"}},
+            "nextActivity": {"connect":{"id":"sc2-activity-4"}}
+        },
+        {
+            "previousActivity": {"connect":{"id":"sc2-activity-4"}},
+            "nextActivity": {"connect":{"id":"sc2-activity-5"}}
+        }
+    ]
 }

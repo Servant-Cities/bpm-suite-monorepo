@@ -28,9 +28,9 @@ model Activity {
 
 model Connection {
   nextActivityId     String
-  nextActivity       Activity      @relation("previousActivities", fields: [nextActivityId], references: [id])
+  nextActivity       Activity?      @relation("previousActivities", fields: [nextActivityId], references: [id])
   previousActivityId String
-  previousActivity   Activity      @relation("nextActivities", fields: [previousActivityId], references: [id])
+  previousActivity   Activity?      @relation("nextActivities", fields: [previousActivityId], references: [id])
 
   @@id([previousActivityId, nextActivityId])
 }
@@ -39,7 +39,7 @@ model Trigger {
   value              String        @id @unique
   description        String
   reserved           Boolean
-  extends            String
+  extends            String?
   extensions         Trigger[]     @relation("TriggerExtension")
   extensionTree      Trigger?      @relation("TriggerExtension", fields: [extends], references: [value])
   Activity           Activity[]
