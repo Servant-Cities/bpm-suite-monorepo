@@ -13,7 +13,7 @@
 	let innerHeight = $state(0);
 
 	let diagram =
-		$state(`%\nflowchart LR\n${activities
+		$state(`flowchart LR\n${activities
 			.map((activity) => {
 				const { id, name, trigger, previousActivities } = activity;
 
