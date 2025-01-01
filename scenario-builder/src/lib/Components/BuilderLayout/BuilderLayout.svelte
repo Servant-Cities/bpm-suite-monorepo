@@ -1,19 +1,45 @@
 <script lang="ts">
-	import { Svelvet, Controls, Minimap } from 'svelvet';
+	import type { Activity } from '@prisma/client';
+	import mermaid from 'mermaid';
+	mermaid.initialize({
+		flowchart: {
+			curve: 'linear'
+		}
+	});
+
+	let { activities }: { activities: Array<Activity> } = $props();
 
 	let innerWidth = $state(0);
 	let innerHeight = $state(0);
+
+	let diagram =
+		$state(`%\nflowchart LR\n${activities
+			.map((activity) => {
+				const { id, name, trigger, previousActivities } = activity;
+
+				let str = `${id}["${name} (${trigger})"]\n`;
+
+				previousActivities.forEach((prev) => {
+					str += `${prev.previousActivityId}-->${prev.nextActivityId}\n`;
+				});
+
+				return str;
+			})
+			.join('')}
+	`);
+
+	let container = $state();
+
+	$effect(async () =>
+		mermaid.render('mermaid', diagram).then(({ svg }) => (container.innerHTML = svg))
+	);
 </script>
 
 <svelte:window bind:innerWidth bind:innerHeight />
 
 <div class="builder-wrapper">
 	<div class="flowchart-wrapper">
-		<Svelvet theme="dark" fitView>
-			<Controls slot="controls" corner="NE" />
-			<slot name="scenario"></slot>
-			<Minimap corner="SE" slot="minimap" width={innerWidth - 340} height={innerHeight / 10} />
-		</Svelvet>
+		<span bind:this={container}> </span>
 	</div>
 	<div class="activity-panel">
 		<slot name="activity-panel"></slot>
