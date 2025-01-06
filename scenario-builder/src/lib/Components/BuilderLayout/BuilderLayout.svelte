@@ -1,13 +1,8 @@
 <script lang="ts">
 	import type { Activity } from '@prisma/client';
 	import mermaid from 'mermaid';
-	mermaid.initialize({
-		flowchart: {
-			curve: 'linear'
-		}
-	});
 
-	let { activities }: { activities: Array<Activity> } = $props();
+	let { activities = [] }: { activities?: Array<Activity> } = $props();
 
 	let innerWidth = $state(0);
 	let innerHeight = $state(0);

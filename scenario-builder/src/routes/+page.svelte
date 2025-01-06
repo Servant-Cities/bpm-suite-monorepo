@@ -3,7 +3,6 @@
 	import BuilderLayout from '$lib/Components/BuilderLayout/BuilderLayout.svelte';
 
 	let { data }: { data: LayoutServerData } = $props();
-	console.log(data);
 </script>
 
 <BuilderLayout>
