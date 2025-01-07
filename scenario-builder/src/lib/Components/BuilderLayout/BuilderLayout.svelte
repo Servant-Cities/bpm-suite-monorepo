@@ -1,40 +1,26 @@
 <script lang="ts">
-	import type { Activity } from '@prisma/client';
-	import mermaid from 'mermaid';
+	import { setContext } from 'svelte';
+	import type { InteractiveActivity } from '$lib/types';
+	import GridFlowchart from '../GridFlowchart/GridFlowchart.svelte';
 
-	let { activities = [] }: { activities?: Array<Activity> } = $props();
+	let { activities = [] }: { activities?: Array<InteractiveActivity> } = $props();
+	let selectedActivity = $state();
 
-	let innerWidth = $state(0);
-	let innerHeight = $state(0);
+	const clickActivity = (activity: InteractiveActivity) => {
+		selectedActivity = activity;
+	};
 
-	let diagram =
-		$state(`flowchart LR\n${activities
-			.map((activity) => {
-				const { id, name, trigger, previousActivities } = activity;
-
-				let str = `${id}["${name} (${trigger})"]\n`;
-
-				previousActivities.forEach((prev) => {
-					str += `${prev.previousActivityId}-->${prev.nextActivityId}\n`;
-				});
-
-				return str;
-			})
-			.join('')}
-	`);
-
-	let container = $state();
-
-	$effect(async () =>
-		mermaid.render('mermaid', diagram).then(({ svg }) => (container.innerHTML = svg))
-	);
+	setContext('flowchart', {
+		activities,
+		zoom: 1,
+		clickActivity,
+		getSelectedActivity: () => selectedActivity
+	});
 </script>
-
-<svelte:window bind:innerWidth bind:innerHeight />
 
 <div class="builder-wrapper">
 	<div class="flowchart-wrapper">
-		<span bind:this={container}> </span>
+		<GridFlowchart />
 	</div>
 	<div class="activity-panel">
 		<slot name="activity-panel"></slot>
@@ -47,15 +33,18 @@
 	}
 
 	.flowchart-wrapper {
+		display: inline-block;
 		width: calc(100vw - 320px);
 		height: calc(100vh - 40px);
+		overflow: auto;
+		background-color: #393937;
 	}
 
 	.activity-panel {
 		display: inline-block;
 		width: 320px;
 		height: calc(100vh - 40px);
-		background-color: lightgrey;
+        background-color: white;
 		box-shadow:
 			0px 3px 3px -2px rgba(0, 0, 0, 0.2),
 			0px 3px 4px 0px rgba(0, 0, 0, 0.14),

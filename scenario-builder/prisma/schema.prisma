@@ -22,8 +22,8 @@ model Activity {
   scenarios          Scenario[]
   triggerDef         Trigger       @relation(fields: [trigger], references: [value])
   trigger            String
-  previousActivities Connection[]  @relation("nextActivities")
-  nextActivities     Connection[]  @relation("previousActivities")
+  previousActivities Connection[]  @relation("previousActivities")
+  nextActivities     Connection[]  @relation("nextActivities")
 }
 
 model Connection {
