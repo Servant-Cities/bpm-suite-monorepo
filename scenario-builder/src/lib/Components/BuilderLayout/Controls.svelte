@@ -19,12 +19,12 @@
 	};
 
 	const handleWheel = (event) => {
+		if (event.ctrlKey == true || oneHandMode) {
+			event.preventDefault();
+			setZoomWithinLimits(event.wheelDeltaY / wheelSensitivity);
+		}
 		if (event.ctrlKey == true) {
 			oneHandMode = false;
-			if (oneHandMode) {
-				event.preventDefault();
-				setZoomWithinLimits(event.wheelDeltaY / wheelSensitivity);
-			}
 		}
 	};
 
