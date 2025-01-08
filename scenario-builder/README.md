@@ -19,3 +19,16 @@ This is likely to be used as a prospection material and an interactive participa
     - [ ] Receive feedbacks per activity filtered per roles
     - [ ] Integrate with the protocol
     - [ ] Demonstrate integration with the processes monitor and the business app
+
+## Run locally
+
+Considering yarn is installed and you run the project for the first time:
+
+```
+    git clone https://github.com/Servant-Cities/bpm-suite-monorepo.git
+    cd scenario-builder
+    yarn
+    yarn run prisma migrate dev
+    yarn dev
+```
+The development server runs on port 5173 and seed data have been created
