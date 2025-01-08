@@ -46,7 +46,7 @@ const getActivitiesGridPositions = (
 		new Array(ySpaceAround),
 		(_) => new Array(columnsNumber + xSpaceAround)
 	);
-	console.log({ centeredGrid });
+	
 	return {
 		grid: [...centeredGrid, ...rows, ...centeredGrid],
 		meta: { columnsNumber, flattenPositions: processedActivities }

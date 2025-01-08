@@ -1,29 +1,19 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
 	import getActivitiesGridPositions from '$lib/utils/getActivitiesGridPositions';
-	import type { ActivityCell } from '$lib/types';
-	import type { Connection } from '@prisma/client';
 	import GridConnection from './GridConnection.svelte';
 
-	let { activities, zoom, clickActivity, getSelectedActivity } = getContext('flowchart');
+	let { activities, getZoom, clickActivity, getSelectedActivity } = getContext('flowchart');
 
 	let {
 		grid,
-		meta: { flattenPositions, columnsNumber }
-	} = getActivitiesGridPositions(activities, zoom);
-
-	const getConnectionEdgesStyle = (activityCell: ActivityCell, connection: Connection) => {
-		const nextActivity = flattenPositions.find(({ id }) => id === connection.nextActivityId);
-
-		const height = nextActivity ? nextActivity.rowIndex - activityCell.rowIndex : -0.5;
-		const width = nextActivity ? nextActivity.columnIndex - activityCell.columnIndex : -0.5;
-		return `height: calc(${height}25% + 1px); width: calc(${width * 6}em + 1px);`;
-	};
+		meta: { flattenPositions }
+	} = getActivitiesGridPositions(activities, getZoom());
 </script>
 
-<table class="flowchart-grid" style="font-size:{zoom * 16}px">
+<table class="flowchart-grid" style="font-size:{getZoom() * 16}px">
 	<tbody>
-		{#each grid as row, rowIndex}
+		{#each grid as row}
 			{#if row.some((cell) => cell?.id)}
 				<tr class="flowchart-row">
 					{#each row as activityCell, cellIndex}

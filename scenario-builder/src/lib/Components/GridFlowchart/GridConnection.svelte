@@ -7,7 +7,7 @@
 		activityCell,
 		flattenPositions
 	}: { activityCell: ActivityCell; flattenPositions: Array<ActivityCell> } = $props();
-	let { zoom } = getContext('flowchart');
+	let { getZoom } = getContext('flowchart');
 
 	const getConnectionEdgesStyle = (activityCell: ActivityCell, connection: Connection) => {
 		const nextActivity = flattenPositions.find(({ id }) => id === connection.nextActivityId);

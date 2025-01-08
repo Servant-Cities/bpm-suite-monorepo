@@ -1,4 +1,8 @@
 {
   "app.home": "Back to main page",
-  "app.github": "We are on github"
+  "app.github": "We are on github",
+  "flowchart.controls.modes.mouse.title": "Using mouse mode",
+  "flowchart.controls.modes.mouse.helper": "-Keep the middle button pressed to move in the flowchart\n-Scroll to zoom.",
+  "flowchart.controls.modes.keyboard.title": "Using keyboard mode",
+  "flowchart.controls.modes.keyboard.helper": "-Scroll to move up and down.\n-Keep MAJ pressed while scrolling in order to scroll left and right.\n-Keep CTRL pressed while scrolling to adjust zoom."
 }
