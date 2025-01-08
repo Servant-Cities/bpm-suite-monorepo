@@ -12,3 +12,5 @@ export type ActivityCell = InteractiveActivity & {
 }
 export type ActivitiesRow = Array<ActivityCell | undefined>
 export type ActivitiesGridPositions = Array<ActivitiesRow>
+
+export type ClickActivityCell = (activity: InteractiveActivity, mode?: string | null) => void;

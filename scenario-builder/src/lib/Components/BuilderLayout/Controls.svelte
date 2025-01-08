@@ -65,7 +65,7 @@
 </script>
 
 <svelte:window on:wheel={handleWheel} onmousedown={handleMiddleButtonClick} />
-<div class="controls-area">
+<div class="controls-area" role="presentation">
 	<button onclick={() => setZoomWithinLimits(0.3)}>+</button>
 	<button onclick={() => setZoomWithinLimits(-0.3)}>-</button>
 	<div class="tooltip">

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
 	import getActivitiesGridPositions from '$lib/utils/getActivitiesGridPositions';
+	import ActivityCell from './ActivityCell.svelte';
 	import GridConnection from './GridConnection.svelte';
 
 	let { activities, getZoom, clickActivity, getSelectedActivity } = getContext('flowchart');
@@ -22,16 +23,12 @@
 								class="activity-cell-wrapper"
 								aria-selected={getSelectedActivity()?.id === activityCell.id}
 							>
-								<div
-									role="button"
+								<ActivityCell
+									{activityCell}
 									tabindex={cellIndex}
-									class="activity"
-									class:activity-cell-active={getSelectedActivity()?.id === activityCell.id}
-									onclick={() => clickActivity(activityCell)}
-									onkeypress={(event) => {event.key === 'Enter' && clickActivity(activityCell)}}
-								>
-									{activityCell.name}
-								</div>
+									selected={getSelectedActivity()?.id === activityCell.id}
+									{clickActivity}
+								/>
 								<GridConnection {...{ flattenPositions, activityCell }} />
 							</td>
 						{:else}
@@ -58,31 +55,5 @@
 	.activity-cell-wrapper {
 		padding: 2em;
 		min-width: 5em;
-	}
-
-	.activity {
-		height: 5.5em;
-		background-color: black;
-		padding: 2em;
-		border: 0.25em solid white;
-		border-radius: 0.8em;
-		white-space: nowrap;
-		color: white;
-		cursor: pointer;
-		&:hover {
-			border: 0.25em solid #7dc19c;
-		}
-	}
-
-	.activity-cell-active {
-		border: 0.25em solid #7dc19c;
-	}
-
-	.connection {
-		display: block;
-		position: absolute;
-		left: calc(100% - 2em);
-		top: 50%;
-		background-color: white;
 	}
 </style>

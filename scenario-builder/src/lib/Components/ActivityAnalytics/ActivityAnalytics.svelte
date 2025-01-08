@@ -5,7 +5,7 @@
 </script>
 
 <div class="activity-panel">
-	<h3 class="activity-title">{getSelectedActivity()?.name} - Settings</h3>
+	<h3 class="activity-title">{getSelectedActivity()?.name} - Analytics</h3>
 </div>
 
 <style>
