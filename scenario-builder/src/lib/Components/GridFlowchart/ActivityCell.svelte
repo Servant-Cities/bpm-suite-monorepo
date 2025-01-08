@@ -74,7 +74,7 @@
 			& > .helper {
 				visibility: visible;
 			}
-			& > activity {
+			& > .activity {
 				border: 0.25em solid #7dc19c;
 			}
 		}
